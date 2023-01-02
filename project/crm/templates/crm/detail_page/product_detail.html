@@ -1,0 +1,57 @@
+{% extends 'crm/base.html'%}
+{% load static %}
+
+{% block detail %}
+<div class="container">
+    <div class="row between-xs">
+        <div class="col-xs-7 left_block">
+            <div class="row between-xs">
+                <div>
+                    <h1>{{ product.company }}</h1>
+                    <h2>{{ product.title }}</h2>
+                    <h3>Базовый вес пачки: {{ product.ref_weight }}</h3>
+                </div>
+                <div class="product_edit">
+                    <a href="{% url 'edit_product' product_slug=product.slug %}">
+                        <button class="product_edit_button">Редактировать</button>
+                    </a>
+                </div>
+            </div>
+            <table class="products_table">
+                <tbody>
+                    <tr>
+                        <th><p>Магазин</p></th>
+                        <th><p>Стоимость</p></th>
+                        <th><p>Вес</p></th>
+                        <th><p>Редактирование</p></th>
+                    </tr>
+                    {% for p in product_set %}
+                    <tr>
+                        <td>{{ p.shop__shop }}</td>
+                        <td>{{ p.cost }}</td>
+                        <td>{{ p.weight }}</td>
+                        <td>
+                            <a href="{% url 'edit_prodinfo' prodinfo_id=p.pk product_slug=product.slug %}">
+                                <button class="table_edit_button">Редактировать</button>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="detail_addnew_button_block">
+                <a href="{% url 'add_prodinfo_detail' product_slug=product.slug %}" title="Добавить товар" methods="post">
+                    <button class="detail_addnew_button">Добавить товар</button>
+                </a>
+            </div>
+        </div>
+        <div class="detail_img">
+            {% if product.photo %}
+            <img src="{{ product.photo.url }}" alt="photo">
+            {% else %}
+                <p>Здесь дожно быть фото =)</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'crm/base.html' %}
+{% load static %}
+
+{% block content %}
+<!--SEARCH BLOCK-->
+<div class="container">
+    <div class="row center-xs">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="search_panel">
+                    <form class="search_form" method="get" action="{% url 'search_result' %}">
+                      <input name="q" class="search" type="text" placeholder="Искать здесь...">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--SEARCH BLOCK-->
+
+<!--ADD BLOCK-->
+<div class="container add_block">
+    {% if 'add_dict' in products %}
+        {% for add in products.add_dict %}
+            <div class="form">
+                <a href="{% url add.address %}" title="{{ add.title }}" methods="post">
+                    <button class="add_main_button">{{ add.title }}</button>
+                </a>
+            </div>
+        {% endfor %}
+    {% else %}
+        {% for add in add_dict %}
+            <div class="form">
+                <a href="{% url add.address %}" title="{{ add.title }}" methods="post">
+                    <button class="add_main_button">{{ add.title }}</button>
+                </a>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+<!--ADD BLOCK-->
+
+<!--CARD BLOCK-->
+{% block cards %}
+{% endblock %}
+{% block search %}
+{% endblock %}
+<!--CARD BLOCK-->
+
+{% endblock %}

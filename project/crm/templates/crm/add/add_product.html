@@ -1,0 +1,33 @@
+{% extends 'crm/base.html' %}
+{% load static %}
+
+{% block add %}
+<form method="post" id="productForm" action="{% url 'add_product' %}" data-title-url="{% url 'ajax_load_objects' %}" enctype="multipart/form-data">
+    {% csrf_token%}
+    <div class="form-error">{{ form.non_field_errors }}</div>
+    {% for f in form %}
+    <p>{{f}}</p>
+    <p class="help_text">{{ f.help_text }}</p>
+    <div class="form-error">{{f.errors}}</div>
+    {% endfor %}
+    <button class="add_button" type="submit">Добавить</button>
+</form>
+
+<script>
+    $("#id_company").change(function () {
+  var url = $("#productForm").attr("data-title-url");  // get the url of the `load_cities` view
+  var companyId = $(this).val();  // get the selected country ID from the HTML input
+
+  $.ajax({                       // initialize an AJAX request
+    url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+    data: {
+      'company': companyId       // add the country id to the GET parameters
+    },
+    success: function (data) {   // `data` is the return of the `load_cities` view function
+      $("#id_title").html(data);  // replace the contents of the city input with the data that came from the server
+    }
+  });
+
+});
+</script>
+{% endblock %}

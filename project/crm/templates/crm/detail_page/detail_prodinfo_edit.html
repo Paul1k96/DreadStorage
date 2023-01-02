@@ -1,0 +1,25 @@
+{% extends 'crm/base.html'%}
+{% load static %}
+
+{% block detail %}
+
+<div class="add_block">
+    <div class="prodinfo_edit_block">
+        <form method="post" action="{% url 'edit_prodinfo' slug pk %}" enctype="multipart/form-data">
+            {% csrf_token%}
+            <div class="form-error">{{ form.non_field_errors }}</div>
+            {% for f in form %}
+            <p>{{f}}</p>
+            <div class="form-error">{{f.errors}}</div>
+            {% endfor %}
+
+            <button class="add_button" type="submit">Сохранить изменения</button>
+        </form>
+    </div>
+    <div class="prodinfo_delete_block">
+        <a href="{% url 'delete_prodinfo' slug pk %}">
+            <button class="delete_button" type="submit">Удалить товар</button>
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'crm/base.html'%}
+{% load static %}
+
+{% block detail %}
+<script>
+<!--Script to load an image and to replace the image when a new one is loaded-->
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#image').attr('src', e.target.result);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</script>
+<div class="add_block">
+    <form method="post" action="{% url 'edit_product' product_slug=slug %}" enctype="multipart/form-data">
+        {% csrf_token%}
+        <div class="form-error">{{ form.non_field_errors }}</div>
+        {% for f in form %}
+        {% if form.photo == f %}
+        <a class="card_photo">
+            {% if photo %}
+                <img id="image" src="{{ photo.url }}" alt="photo" />
+            {% else %}
+                <p>Фото ещё не загружено</p>
+            {% endif %}
+        </a>
+        {% endif %}
+        <p>{{f}}</p>
+        <div class="form-error">{{f.errors}}</div>
+        {% endfor %}
+
+        <button class="add_button" type="submit">Сохранить изменения</button>
+    </form>
+</div>
+{% endblock %}
+

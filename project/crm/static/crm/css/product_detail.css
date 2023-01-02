@@ -1,0 +1,55 @@
+
+detail_img {
+
+}
+
+.detail_img img {
+    object-fit: cover;
+    width: 400px;
+    height: 400px;
+}
+
+.products_table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.products_table {
+    text-align: left;
+}
+
+th {
+    padding: 0px 9px;
+    border-bottom: 2px solid rgba(0,0,0,0.3);
+}
+
+td {
+    font-weight: 300;
+    padding: 8px 9px;
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+
+tr {
+    transition: background-color 0.1s ease-in;
+}
+
+tr:hover {
+    background: rgba(132,198,134,1);
+}
+
+.table_edit_button {
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.1s ease-in;
+}
+
+.detail_addnew_button_block {
+    display: flex;
+    justify-content: end;
+}
+
+.detail_addnew_button {
+    margin-top: 10px;
+    padding: 10px 20px 10px 20px;
+    transition: background-color 0.1s ease-in;
+}

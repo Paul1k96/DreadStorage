@@ -1,0 +1,11 @@
+{% extends 'crm/base.html' %}
+{% load static %}
+
+{% block detail %}
+<form method="post" action="{% url 'delete_prodinfo' slug pk %}">
+    {% csrf_token%}
+    <p>Вы уверены, что хотите удалить товар?</p>
+    <button class="delete_button" value="Confrim" type="submit">Удалить</button>
+</form>
+
+{% endblock %}

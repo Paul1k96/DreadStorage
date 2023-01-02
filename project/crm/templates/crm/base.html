@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link type="text/css" href="{% static 'crm/css/styles.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'crm/css/product_detail.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'crm/css/add_page.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/flexboxgrid2@7.2.1/flexboxgrid2.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@webcreate/infinite-ajax-scroll@^3/dist/infinite-ajax-scroll.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<!--CAP-->
+<div class="full_content">
+    <nav>
+        <div class="row header">
+            <div class="container">
+                <div class="row between-xs middle-xs">
+                    <div class="col-xs-5 col-md-2 col-lg-2 start-xs start-md start-lg">
+                        <a href="{% url 'home' %}">
+                            <h1 class="logo">DREADSTORAGE</h1>
+                        </a>
+                    </div>
+                    {% if user.is_authenticated %}
+                    <div class="col-xs-4 col-md-3 col-lg-2 end-xs end-md end-lg">
+                        <div class="row middle-xs">
+                            <div class="logout_panel">
+                                <div class="logout_text">
+                                    <p>Здравствуй, {{user.username}}!</p>
+                                </div>
+                                <a href="{% url 'logout' %}">
+                                    <button class="button_logout">Выйти</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+<!--END CAP-->
+
+<!--BODY-->
+
+    <main>
+        <div class="container content_block">
+            <div class="add_block">
+                {% block add %}
+                {% endblock %}
+            </div>
+            {% block content %}
+            {% endblock %}
+            {% block detail %}
+            {% endblock %}
+
+            {% if page_obj.has_other_pages %}
+                {% if page_obj.has_next%}
+                    <div class="pagination">
+                        <a href="?page={{ page_obj.next_page_number }}" class="next">Next</a>
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+    </main>
+
+<!--END BODY-->
+</div>
+
+<!--UP BUTTON-->
+<a title="Наверх" class="up_button"><div class="up_button_txt">&#10140;</div></a>
+<!--UP BUTTON-->
+
+<!--FOOTER-->
+<footer>
+    <div class="container">
+        <div class="row footer">
+            {% block foot %}
+                <h4>Footer</h4>
+            {% endblock %}
+        </div>
+    </div>
+</footer>
+<!--END FOOTER-->
+
+<script>
+jQuery(document).ready(function() {
+  var btn = $('.up_button');
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 300) {
+        btn.fadeIn();
+    } else {
+        btn.fadeOut();
+    }
+   });
+   btn.on('click', function(e) {
+     e.preventDefault();
+     $('html, body').animate({scrollTop:0}, '300');
+   });
+});
+</script>
+
+<script>
+let ias = new InfiniteAjaxScroll('.load_container', {
+  item: '.load_content',
+  next: '.next',
+  pagination: '.pagination'
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% extends 'crm/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="login_register_block">
+    <div class="login_register_form">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token%}
+            <h4>Регистрация</h4>
+            <div class="help_text">{{ form.non_field_errors }}</div>
+            {% for f in form %}
+            <p class="form_field">{{f}}</p>
+            <p class="help_text">{{ f.help_text }}</p>
+            <div class="help_text">{{f.errors}}</div>
+            {% endfor %}
+            <button class="log_reg_button" type="submit">Зарегистрироваться</button>
+        </form>
+    </div>
+</div>
+
+{% endblock%}

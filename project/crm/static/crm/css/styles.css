@@ -1,0 +1,346 @@
+/*GLOBAL SETTINGS*/
+* {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+body, html {
+    height: 100%;
+}
+
+.content_block {
+    padding: 100px 0 15px 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+.full_content {
+    flex: 1 0 auto;
+}
+
+/*CAP*/
+nav {
+    display: block;
+}
+
+.header {
+    box-shadow: 0 5px 5px -3px #cacaca;
+    position: fixed;
+    width: 100%;
+    padding: 0px 0 10px 0;
+}
+
+.logout_panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+}
+
+.logout_text {
+}
+
+.header a {
+    text-decoration: none;
+}
+
+.logo {
+    color: rgba(255,153,0,0.8);
+    text-shadow: 0.5px 0.5px 1px #666;
+}
+
+.logout_text p {
+    padding-right: 30px;
+    text-align: start;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+
+nav .button_logout {
+    padding: 10px 20px 10px 20px;
+    transition: background-color 0.1s ease-in;
+}
+
+.choice_field {
+    padding: 10px 20px 10px 20px;
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+/*nav .button_logout:hover {
+    background-color: rgba(0,0,0,0.2);
+}*/
+/*END CAP*/
+
+/*MAIN*/
+.for_hide {
+    display: none;
+}
+
+main {
+    display: block;
+}
+
+.search_panel {
+    margin-bottom:15px;
+}
+
+.search_form {
+    width: 100%;
+    padding-left: 0px;
+}
+
+.search {
+    width: 100%;
+    color: rgba(0,0,0,0.5);
+    line-height: 24px;
+    border-radius: 3px;
+    padding: 5px 0 5px 10px;
+}
+
+.add_block {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+}
+
+.form {
+    width: 95%;
+}
+
+.add_main_button {
+    width: 95%;
+    padding: 10px 20px 10px 20px;
+    transition: background-color 0.1s ease-in;
+}
+
+.add_button {
+    width: 95%;
+    border-radius: 2px;
+    padding: 10px 20px 10px 20px;
+    transition: background-color 0.1s ease-in;
+}
+
+.prodinfo_edit_block {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.login_register_block {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.login_register_form {
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 6px;
+    padding: 0px 25px 15px;
+    text-align: center;
+    font-size: 17px;
+}
+
+.form_input {
+    width: 100%;
+    line-height: 40px;
+    border-radius: 3px;
+}
+
+.login_or_reg {
+    font-size: 15px;
+}
+
+.log_reg_button {
+    margin: 15px 0px;
+    padding: 10px 20px 10px 20px;
+    transition: background-color 0.1s ease-in;
+}
+
+.form_field {
+    display: flex;
+    align-items: start;
+}
+
+.help_text {
+    text-align: start;
+    font-size: 11px;
+    font-weight: 300;
+    margin-top: -15px;
+    padding-bottom: 2px;
+}
+
+.product_edit {
+    display: flex;
+    align-items: center;
+}
+
+.product_edit_button {
+    width: 120px;
+    height: 80px;
+    transition: background-color 0.1s ease-in;
+}
+
+/*CARDS*/
+.cards_part {
+    margin: 40px 0 90px 0;
+}
+
+.card {
+    display: flex;
+    color: black;
+    padding: 2px 10px 2px 10px;
+    margin: 10px 1px 10px 1px;
+    transition: background-color 0.2s ease-in;
+    border-radius: 2px;
+}
+
+.text_part {
+    display: flex;
+    flex-direction: column;
+}
+
+.card_info {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.text_part {
+    text-align: center;
+}
+
+.card_txt {
+    width: 90%;
+}
+
+.card_photo, .card_txt_info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_photo {
+    width: 200px;
+}
+
+.card_photo img {
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+}
+
+/*.card_button {
+    width: 60px;
+    height: 60px;
+}
+.card_button img {
+    width: 60px;
+}*/
+/*END CARDS*/
+
+/*END MAIN*/
+
+/*UP BUTTON*/
+.up_button {
+    display: inline-block;
+    background-color: rgba(132,198,134,1);
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    margin: 30px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color 0.2s ease-in;
+    opacity: 0.5;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*UP BUTTON*/
+/*.up_button {
+    width: 60px;
+    height: 60px;
+    transition: background-color .3s,
+    opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+}*/
+.up_button:hover {
+    opacity: 1;
+    cursor: pointer;
+    background-color: rgba(255,153,0,0.8);
+}
+.up_button:active {
+    background-color: #3e8e41;
+}
+
+.up_button_txt {
+    transform: rotate(-90deg);
+    text-align: center;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 3em;
+    line-height: 50px;
+    color: #fff;
+}
+
+/*FOOTER*/
+footer {
+    flex: 0 0 auto;
+    background: rgba(0,0,0,0.85);
+}
+/*END FOOTER*/
+
+/*COLOR PART*/
+
+.pass_reset_form input{
+    background: rgba(255,255,255,1);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.delete_button {
+    background: rgba(220,20,60,1);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.card, .search, .button_logout, .add_main_button, .add_button, .form_input, .log_reg_button, .choice_field, .table_edit_button, .detail_addnew_button, .product_edit_button  {
+    background: rgba(255,255,255,1);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+.button_logout, .add_main_button, .add_button, .log_reg_button, .product_edit_button, .detail_addnew_button, .delete_button {
+/*    box-shadow: 0 7px #999;*/
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
+}
+
+.button_logout:active, .add_main_button:active, .add_button:active, .log_reg_button:active, .product_edit_button:active, .detail_addnew_button:active, .delete_button:active  {
+    background-color: #3e8e41;
+/*    box-shadow: 0 3px #666;*/
+/*    transform: translateY(4px);*/
+}
+
+.card:hover, .button_logout:hover, .add_main_button:hover, .add_button:hover, .log_reg_button:hover, .choice_field:hover, .table_edit_button:hover, .product_edit_button:hover, .detail_addnew_button:hover {
+    background-color: rgba(255,153,0,0.8);
+}
+
+.header {
+    background: rgba(132,198,134,1);
+}
+
+.full_content {
+    background-color: rgba(0,131,4,0.1);
+}

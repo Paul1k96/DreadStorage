@@ -1,0 +1,41 @@
+{% extends 'crm/main.html' %}
+{% load static %}
+
+{% block search %}
+<!--CARD BLOCK-->
+<div class="cards_part">
+    <div class="row between-xs">
+        {% for p in products.products %}
+        {% for c in products.count_sum %}
+        {% if c.title == p.pk %}
+            <div class="col-xs-12 col-md-6 col-lg-6">
+                <div class="card">
+                    <div class="text_part">
+                        <h3 class="card_company">{{p.company}}</h3>
+                        <h4 class="card_title">{{p.title}}</h4>
+                        <div class="card_info">
+
+                            <div class="card_txt_info">
+                                <p class="card_txt">Кол-во пачек: {{c.count}}</p>
+                                <p class="card_txt"> Общий вес: {{c.weight}}</p>
+                                <p class="card_txt">Неполных пачек: {{c.not_full}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <a class="card_photo" href="{{ p.get_absolute_url }}">
+                        {% if p.photo %}
+                        <img src="{{p.photo.url}}" alt="photo">
+                        {% else %}
+                        <p>Здесь дожно быть фото =)</p>
+                        {% endif %}
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+    </div>
+</div>
+<!--CARD BLOCK-->
+{% endblock %}

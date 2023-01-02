@@ -1,0 +1,13 @@
+{% if titles|length == 1 %}
+
+{% for object in titles %}
+<option value="{{ object.pk }}">{{ object.title }}</option>
+{% endfor %}
+
+{% else %}
+<option value=''>Выберите товар</option>
+{% for object in titles %}
+<option value="{{ object.pk }}">{{ object.title }}</option>
+{% endfor %}
+
+{% endif%}

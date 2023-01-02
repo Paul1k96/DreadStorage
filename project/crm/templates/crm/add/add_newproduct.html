@@ -1,0 +1,16 @@
+{% extends 'crm/base.html' %}
+{% load static %}
+
+{% block add %}
+<form method="post" action="{% url 'add_newproduct' %}" enctype="multipart/form-data">
+    {% csrf_token%}
+    <div class="form-error">{{ form.non_field_errors }}</div>
+    {% for f in form %}
+    <p>{{f}}</p>
+    <p class="help_text">{{ f.help_text }}</p>
+    <div class="form-error">{{f.errors}}</div>
+    {% endfor %}
+    <button class="add_button" type="submit">Добавить</button>
+</form>
+
+{% endblock %}
